@@ -79,7 +79,8 @@ Ext.define('Training.view.main.Main', {
         iconCls: 'x-fa fa-recycle',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'lifecycle'
+            xtype: 'lifecycle',
+            reference: 'lifecycle'
         }]
     }]
 });

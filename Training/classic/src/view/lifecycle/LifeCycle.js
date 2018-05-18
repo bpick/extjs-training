@@ -8,10 +8,9 @@ Ext.define('Training.view.lifecycle.LifeCycle', {
         type: 'hbox',
         align: 'stretch'
     },
-    controller: 'lifecycle',
     items: [{
-        xtype: 'renderpane',
-        itemId: 'renderpane',
+        xtype: 'actionpane',
+        itemId: 'actionpane',
         margin: '0px 12px',
         flex: 2
     }, {
@@ -20,7 +19,10 @@ Ext.define('Training.view.lifecycle.LifeCycle', {
         flex: 1
     }],
     getRenderPane: function() {
-        return this.getComponent('renderpane');
+        return this.getComponent('actionpane').getComponent('renderpane');
+    },
+    getDescriptionPane: function() {
+        return this.getComponent('actionpane').getComponent('descriptionpane');
     },
     getContentPane: function() {
         return this.getComponent('contentpane');

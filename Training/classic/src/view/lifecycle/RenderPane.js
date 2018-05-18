@@ -19,4 +19,5 @@ Ext.define('Training.view.lifecycle.RenderPane', {
             }
         }]
     }
+
 });

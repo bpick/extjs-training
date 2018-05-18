@@ -19,7 +19,9 @@ Ext.define('Training.view.lifecycle.components.LifeCycleButton', {
 
     constructor: function(config) {
         config = config || {};
+        var mainView = Training.app.getMainView();
         debugger;
+        mainView.fireEvent('writeLifeCycle', this.$className, arguments.callee.$name);
         this.callParent([config]);
     },
     initComponent: function() {
