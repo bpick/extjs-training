@@ -12,12 +12,12 @@ Ext.define('Training.view.lifecycle.ActionPane', {
     items: [{
         xtype: 'renderpane',
         itemId: 'renderpane',
-        height: 500,
+        height: 200,
         margin: '0px 0px 20px 0px'
     }, {
-        xtype: 'descriptionpane',
-        itemId: 'descriptionpane',
-        minHeight: 400,
+        xtype: 'contentpane',
+        itemId: 'contentpane',
+        height: 750,
         flex: 1
     }]
 

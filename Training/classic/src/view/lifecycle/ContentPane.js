@@ -1,6 +1,11 @@
 Ext.define('Training.view.lifecycle.ContentPane', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.tab.Panel',
     xtype: 'contentpane',
     title: 'Content Pane',
-    frame: true
+    frame: true,
+    layout: 'fit',
+    tabPosition: 'bottom',
+    config: {
+        activeTree: undefined
+    }
 });

@@ -11,20 +11,22 @@ Ext.define('Training.view.lifecycle.LifeCycle', {
     items: [{
         xtype: 'actionpane',
         itemId: 'actionpane',
+        height: 850,
         margin: '0px 12px',
-        flex: 2
+        flex: 3
     }, {
-        xtype: 'contentpane',
-        itemId: 'contentpane',
-        flex: 1
+        xtype: 'descriptionpane',
+        itemId: 'descriptionpane',
+        height: 850,
+        flex: 3
     }],
     getRenderPane: function() {
         return this.getComponent('actionpane').getComponent('renderpane');
     },
-    getDescriptionPane: function() {
-        return this.getComponent('actionpane').getComponent('descriptionpane');
-    },
     getContentPane: function() {
-        return this.getComponent('contentpane');
+        return this.getComponent('actionpane').getComponent('contentpane');
+    },
+    getDescriptionPane: function() {
+        return this.getComponent('descriptionpane');
     }
 });

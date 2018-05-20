@@ -9,10 +9,6 @@ Ext.define('Training.store.ExtComponent', {
         { name: 'Button', type: "button", config: {
             xtype: "lifecyclebtn",
             text: "training button"
-        }},
-        { name: 'Component',     type: "component", config: {
-            xtype: "component",
-            html: "training component"
         }}
     ]},
 
