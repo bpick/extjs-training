@@ -55,17 +55,18 @@ Ext.define('Training.view.lifecycle.RenderPane', {
         var me = this,
             parentNode = undefined,
             moreInfo = {};
-        debugger;
         var fnName = arguments.callee.$name;
-        var superMethod = me.getSuperMethod(fnName, arguments.callee);
-        if(!superMethod) {
+        var superMethod = me.getSuperMethod(fnName, arguments.callee) || "";
+        /* if(!superMethod) {
             superMethod = me.getSuperMethod('doDestroy', arguments.callee);
-        }
+        } */
         moreInfo.fnContent = superMethod.toString();
         moreInfo.moreSteps = [
-            'Called from RenderPane'
+            'Called from RenderPane',
+            'Refer remove function from Container'
         ]      
         this.writeToLifeCycle(this.$className, arguments.callee.$name, parentNode, moreInfo);
+        
         this.callParent(arguments);
     },
     onBeforeAdd: function(items) {

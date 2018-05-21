@@ -3,6 +3,8 @@ Ext.define('Training.view.main.MainController', {
     alias: 'controller.main',
     requires: [
         'Ext.d3.hierarchy.tree.HorizontalTree',
+        'Ext.d3.interaction.PanZoom',
+        'Ext.data.TreeStore',
         'Ext.data.NodeInterface'
     ],
     control: {
@@ -105,7 +107,6 @@ Ext.define('Training.view.main.MainController', {
         contentPane.setActiveTree(autoDestroyTree);
         contentPane.setActiveItem(pane);
         // start to add component into container
-        debugger;
         cmp.destroy(true);
     },
     onWriteLifeCycle: function(className, fnName, parentNode, moreInfo) {

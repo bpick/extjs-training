@@ -220,7 +220,6 @@ Ext.define('Training.view.lifecycle.components.LifeCycleButton', {
         var me = this,
         parentNode = undefined,
         moreInfo = {};
-        debugger;
         var fnName = arguments.callee.$name;
         var superMethod = me.getSuperMethod(fnName, arguments.callee);
 
@@ -370,11 +369,14 @@ Ext.define('Training.view.lifecycle.components.LifeCycleButton', {
                 moreInfo = {};
             var fnName = arguments.callee.$name;
             var superMethod = me.getSuperMethod(fnName, arguments.callee);
-            moreInfo.fnContent = superMethod.toString();
+            
+            if(fnName == superMethod.$name) {
+                moreInfo.fnContent = superMethod.toString();
+            }
             moreInfo.moreSteps = [
                 'Component. Eg: lifecyclebtn'
             ]
-            this.writeToLifeCycle(this.$className, arguments.callee.$name, parentNode, moreInfo);
+            this.writeToLifeCycle(this.$className, fnName, parentNode, moreInfo);
             this.callParent(arguments);
 
             // set ui
@@ -482,6 +484,36 @@ Ext.define('Training.view.lifecycle.components.LifeCycleButton', {
             ]
             this.writeToLifeCycle(this.$className, arguments.callee.$name, parentNode, moreInfo);
             return this.callParent(arguments);
+        },
+        doDestroy: function() {
+            var me = this,
+            parentNode = 'destroy',
+            moreInfo = {};
+            var fnName = arguments.callee.$name;
+            var superMethod = me.getSuperMethod(fnName, arguments.callee);
+            if(fnName == superMethod.$name) {
+                moreInfo.fnContent = superMethod.toString();
+            }
+                
+                moreInfo.moreSteps = [
+                    'refer doDestroy from Ext.button.Button to Ext.Component'
+                ]
+            this.writeToLifeCycle(this.$className, arguments.callee.$name, parentNode, moreInfo);
+            this.callParent(arguments);
+        },
+        beforeRender: function() {
+            var me = this,
+                parentNode = undefined,
+                moreInfo = {};
+                
+            var fnName = arguments.callee.$name;
+            var superMethod = me.getSuperMethod(fnName, arguments.callee);
+            moreInfo.fnContent = superMethod.toString();
+            moreInfo.moreSteps = [
+                'Check Ext.util.Renderable for more information'
+            ];
+            this.writeToLifeCycle(this.$className, arguments.callee.$name, parentNode, moreInfo);
+            this.callParent(arguments);
         }
     },
     getFnContent: function(callee) {

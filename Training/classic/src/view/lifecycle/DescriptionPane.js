@@ -13,7 +13,15 @@ Ext.define('Training.view.lifecycle.DescriptionPane', {
     updateFnData: function(fnData) {
         var fnName = fnData.fnName,
             fnContent = fnData.fnContent;
-        var highlightCode = Prism.highlight(fnContent, Prism.languages.js);
+        var highlightCode = undefined;
+        try {
+            highlightCode = Prism.highlight(fnContent, Prism.languages.js);
+        }    catch(e) {
+            // do not highlight if Prism parse error
+            highlightCode = fnContent;
+        }
+        
+
         var html = Ext.String.format('<h2 class="title">{0}</h2>', fnName);
         html += Ext.String.format('<pre class="language-js"><code class="language-js">{0}</code></pre>', highlightCode);
         var cmp = Ext.create('Ext.Component', {
